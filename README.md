@@ -1,6 +1,7 @@
 ##Backup Scripts
 
-#backuptools.sh
+_backuptools.sh_
+
 Simple Bash script to rsync profile data to Google Drive
 
 * Google Drive on mac defaults to "Google Drive" on install so $BACKUPPTH inside quotes to cater for space in "Google Drive".
