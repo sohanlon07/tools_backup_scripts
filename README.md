@@ -1,5 +1,3 @@
 # Dev Tools Customisation Backup
 
-_iTerm Settings
-
-_Sublime Settings_
+Simple Bash script to rsync profile data to Google Drive
