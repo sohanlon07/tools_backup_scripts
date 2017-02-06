@@ -21,6 +21,6 @@ rsync -av --delete ~/.rvm "$BACKUPPTH"/rvm_backup
 rsync -av --delete --exclude=workspace ~/.jenkins "$BACKUPPTH"/jenkins_backup
 rsync -av --delete ~/.m2 "$BACKUPPTH"/m2_backup
 rsync -av --delete ~/.ssh "$BACKUPPTH"/ssh_backup
-rsync -av --delete ~/.viminfo "$BACKUPPTH"/viminfo_backup
+rsync -av --delete ~/.viminfo "$BACKUPPTH"/viminfo
 
 echo "Sync Completed"
