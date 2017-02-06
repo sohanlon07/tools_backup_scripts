@@ -4,8 +4,8 @@ _backuptools.sh_
 
 Simple Bash script to rsync profile data to Google Drive
 
-* Google Drive on mac defaults to "Google Drive" on install so $BACKUPPTH inside quotes to cater for space in "Google Drive".
-* Varibale can be modified for custom location.
-* mkdir will ignore creating of a folder if it already exists.
-* Rsync will create last folder in path if it doesnt exist
+* Google Drive on mac defaults to "Google Drive" on install; $BACKUPPTH inside quotes to cater for the space.
+* Variable can be modified to a custom location.
+* Creates the backup folder in Google Drive folder if it doesn't exist.
+* Rsycn creates each backup folder if they don't exist.
 
