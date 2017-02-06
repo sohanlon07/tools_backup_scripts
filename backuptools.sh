@@ -9,7 +9,7 @@ mkdir "$BACKUPPTH"
 
 #rsync will create backup folders
 #For jenkins, omitting workspace folder
-rsync -av --delete ~/Library/Application\ Support/Sublime\ Text\ 3 ""$BACKUPPTH""/sublime_backup
+rsync -av --delete ~/Library/Application\ Support/Sublime\ Text\ 3 "$BACKUPPTH"/sublime_backup
 rsync -av --delete ~/.npm* "$BACKUPPTH"/npm_backup
 rsync -av --delete ~/.bash* "$BACKUPPTH"/bash_backup
 rsync -av --delete ~/.docker* "$BACKUPPTH"/docker_backup
