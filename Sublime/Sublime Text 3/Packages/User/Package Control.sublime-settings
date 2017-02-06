@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"ColorPicker",
+		"DocBlockr",
+		"Emmet",
+		"FileDiffs",
+		"Git",
+		"Github Tools",
+		"Package Control",
+		"SideBarEnhancements",
+		"Terminal"
+	]
+}
