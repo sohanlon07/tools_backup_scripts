@@ -22,6 +22,11 @@ rsync -av --delete --exclude=workspace ~/.jenkins "$BACKUPPTH"/jenkins_backup
 rsync -av --delete ~/.m2 "$BACKUPPTH"/m2_backup
 rsync -av --delete ~/.ssh "$BACKUPPTH"/ssh_backup
 rsync -av --delete ~/.viminfo "$BACKUPPTH"/viminfo
-mysqldump -uroot -p  --all-databases > ~/Google\ Drive/Profiles_Backup/all_databases.sql
 
-echo "Sync Completed
+echo "Running mySql Backup"
+mysqldump -uroot -p -v --all-databases > "$BACKUPPTH"/all_databases.sql
+
+echo "Creating HomeBrew Restore Script"
+sh backup-brew.sh -v > "$BACKUPPTH"/restore-homebrew.sh && chmod +x "$BACKUPPTH"/restore-homebrew.sh
+
+echo "Sync Completed"
