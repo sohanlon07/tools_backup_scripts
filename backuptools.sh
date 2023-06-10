@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Google Drive on mac defaults to "Google Drive" on Install.
-BACKUPPTH=~/Google\ Drive/Profiles_Backup
+BACKUPPTH=~/Google\ Drive/My\ Drive/Profiles_Backup
 
 #If exists, will ignore creation of folder
 #$BACKUPPTH inside quotes to cater for space in "Google Drive"
