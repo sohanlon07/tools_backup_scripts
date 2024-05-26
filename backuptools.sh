@@ -1,38 +1,23 @@
 #!/bin/bash
 
-#Google Drive on mac defaults to "Google Drive" on Install.
-BACKUPPTH=~/Google\ Drive/My\ Drive/Profiles_Backup
+BACKUPPTH=~/Profiles_Backup
+
+ARCHIVE="Profiles_Backup.tar.gz"
 
 #If exists, will ignore creation of folder
 #$BACKUPPTH inside quotes to cater for space in "Google Drive"
 mkdir "$BACKUPPTH"
 
 #rsync will create backup folders
-#For jenkins, omitting workspace folder
-rsync -av --delete ~/.npm* "$BACKUPPTH"/npm_backup
-rsync -av --delete ~/.nvm* "$BACKUPPTH"/nvm_backup
-rsync -av --delete ~/.bash* "$BACKUPPTH"/bash_backup
-rsync -av --delete ~/.zsh* "$BACKUPPTH"/zshbackup
-rsync -av --delete ~/.docker* "$BACKUPPTH"/docker_backup
-rsync -av --delete ~/.bosh* "$BACKUPPTH"/bosh_backup
-rsync -av --delete ~/.gem "$BACKUPPTH"/gem_backup
-rsync -av --delete ~/.git* "$BACKUPPTH"/git_backup
-rsync -av --delete ~/.groovy "$BACKUPPTH"/groovy_backup
-rsync -av --delete ~/.python* "$BACKUPPTH"/python_backup
-rsync -av --delete ~/.pyenv* "$BACKUPPTH"/pyenv_backup
-rsync -av --delete ~/.rvm "$BACKUPPTH"/rvm_backup
-rsync -av --delete --exclude=workspace ~/.jenkins "$BACKUPPTH"/jenkins_backup
-rsync -av --delete ~/.m2 "$BACKUPPTH"/m2_backup
-rsync -av --delete ~/.ssh "$BACKUPPTH"/ssh_backup
-rsync -av --delete ~/.viminfo "$BACKUPPTH"/viminfo
-rsync -av --delete ~/.iterm2 "$BACKUPPTH"/iterm2
-rsync -av --delete ~/.iterm2 "$BACKUPPTH"/iterm2/iterm2_shell_integration.bash
+rsync -av --exclude-from="list.txt" --delete ~/ "$BACKUPPTH"
 
-# echo "Running mySql Backup"
-# brew services start mysql
-# mysqldump -uroot -p -v --all-databases > "$BACKUPPTH"/all_databases.sql
-
-echo "Creating HomeBrew Restore Script"
+# echo "Creating HomeBrew Restore Script"
 sh backup-brew.sh -v > "$BACKUPPTH"/restore-homebrew.sh && chmod +x "$BACKUPPTH"/restore-homebrew.sh
+
+#Tar up the backup to Documents folder
+tar -cvf "$HOME/Documents/$ARCHIVE" "$BACKUPPTH"
+
+#Delete contents of backup folder
+rm -rf "$BACKUPPTH"
 
 echo "Sync Completed"

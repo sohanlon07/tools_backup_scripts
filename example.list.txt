@@ -1,0 +1,17 @@
+Applications
+Documents
+Library
+Pictures
+Downloads
+Movies
+Postman
+workspace
+Desktop
+Google Drive
+Music
+Public
+Profiles_Backup
+.BrowserLock
+.CFUserTextEncoding
+.cups
+.local
